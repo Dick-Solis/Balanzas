@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 import Logo from "../../assets/logo.png"
+import { GlobalStyle } from '../../styles/GlobalStyle';
+
 const ContentP = styled.header`
 position: absolute;
   width: 100vw;
@@ -27,6 +29,7 @@ const MenuList = styled.ul`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  
 `;
 
 const MenuItem = styled.li`
@@ -51,6 +54,7 @@ export function HeaderComponent(){
 
     return(
     <>
+    <GlobalStyle/>
     <ContentP>
         <ContentG>
         <LogoImage src={Logo} alt="Logo description" />

@@ -5,7 +5,6 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Link, NavLink } from "react-router-dom";
 import { DataOptions } from './dataSidebar';
 
-
 export function SidebarComponentDesktop() {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -72,7 +71,7 @@ const SidebarContainer = styled.nav`
   transition: width 0s linear, opacity 0.1s ease, transform 0.1s ease;
   z-index: 10;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  transform: translateX(${({ isVisible }) => (isVisible ? '0' : '100%')});
+  transform: translateY(${({ isVisible }) => (isVisible ? '0' : '100%')});
   background-color: ${({ isVisible }) => (isVisible ? '#3496FF' : 'transparent')};
   border: ${({ isVisible }) => (isVisible ? '1px solid black' : 'none')};
   overflow-y: auto;

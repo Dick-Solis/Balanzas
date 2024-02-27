@@ -20,6 +20,7 @@ const Telephone = styled.div`
     color: white;
     height: 5vh;
     padding-right: 5px;
+    font-family: 'Segoe UI';
 
   p {
     margin-left: 10px;  // Agrega un espacio entre el icono y el texto
