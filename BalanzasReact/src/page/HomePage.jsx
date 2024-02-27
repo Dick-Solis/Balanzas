@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import { Contactos } from "../components/div/Contactos";
 import { GlobalStyle } from '../styles/GlobalStyle.jsx';
 import { CardInicio } from "../components/div/CardInicio.jsx";
-import { InputStyled } from "../components/input/InputStyled.jsx";
 export function HomePage(){
     const ContentG = styled.div`
     width: 100vw;
@@ -105,7 +104,6 @@ font-size: 21px;
                     año y medio. ¿Necesitas ayuda?  ¡No dudes en consultarnos en cualquier momento!<br /> Nuestro sistema automatizado está listo para atenderte con gusto.</p>
                 </Descripcion2>
             </Contenedor2>
-            <InputStyled/>
         </ContentG>
         </>
     )
