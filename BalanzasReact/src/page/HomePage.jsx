@@ -14,13 +14,13 @@ export function HomePage(){
     const Content1 = styled.div`
     
     padding-top: 75px;
-    background-color: rgba(33, 140, 255, 0.76);
+    background-color: rgba(244, 249, 255, 0.76);
     width: 100vw;
     height: 50vh;
     `;
     const ConTitle = styled.div`
         text-align: center;
-        color: white;
+        color: #000000;
         letter-spacing: 10px;
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-size: 30px;
@@ -51,13 +51,15 @@ export function HomePage(){
     width: 658px;
     `;
     const ContTI = styled.div`
-    background-color: red;
+    font-family: 'Segoe UI';
+    font-size: 30px;
     height: 20vh;
     width: 25vh;
     `;
 
 const Contenedor2 = styled.div`
-background-color: #FFA50D;
+background-color: #ffffff;
+border: 1px solid black;
 height: 40vh;
 padding: 0;
 text-align:center;

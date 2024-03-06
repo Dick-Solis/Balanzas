@@ -19,7 +19,7 @@ export const DataOptions = [
   {
     title: "Categorias",
     icon: <BiSolidCategory />,
-    path: "/Catalogo",
+    path: "/",
     subNav: [
       {
         title: "Balanzas de Grasa",

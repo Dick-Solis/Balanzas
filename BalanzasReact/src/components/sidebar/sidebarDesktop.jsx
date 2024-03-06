@@ -72,7 +72,7 @@ const SidebarContainer = styled.nav`
   z-index: 10;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   transform: translateY(${({ isVisible }) => (isVisible ? '0' : '100%')});
-  background-color: ${({ isVisible }) => (isVisible ? '#3496FF' : 'transparent')};
+  background-color: ${({ isVisible }) => (isVisible ? '#FFF452' : 'transparent')};
   border: ${({ isVisible }) => (isVisible ? '1px solid black' : 'none')};
   overflow-y: auto;
 
@@ -90,6 +90,7 @@ const ListStyled = styled.ul`
 `;
 
 const ListItem = styled.li`
+color: black;
   list-style: none;
   font-family: 'TuFuenteLlamativa', sans-serif; /* Reemplaza 'TuFuenteLlamativa' con la fuente deseada */
   margin-bottom: 38px;
@@ -103,7 +104,7 @@ const SubListItem = styled.li`
 
 const NavLinkStyled = styled(NavLink)`
 margin-right: 5px;
-  color: white;
+  color: #000000;
   font-size: 20px;
   text-decoration: none;
 `;
@@ -114,7 +115,7 @@ const SubNavTitle = styled.div`
   margin-bottom: 5px;
 `;
 const ContentData = styled.div`
-color:white;
+color:black;
   height: 30vh;
   transform: translateY(32%);
 `;

@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 import Logo from "../../assets/logo.png"
 import { GlobalStyle } from '../../styles/GlobalStyle';
-
+import { NavLink } from "react-router-dom";
 const ContentP = styled.header`
 position: absolute;
   width: 100vw;
   height: 10%;
   top: 0;
-  background-color:#3496FF;
+  background-color:#FFF452;
   display: flex;
   
 `;
@@ -33,14 +33,14 @@ const MenuList = styled.ul`
 `;
 
 const MenuItem = styled.li`
-  color: #fff;
+  color: #000000;
   cursor: pointer;
   transition: color 0.3s ease;
   letter-spacing: 5px;
   margin-right: 25px;
   font-size: 20px;
-  font-family: 'Sigmar One', sans-serif; /* 'sans-serif' es una opción por defecto si 'Sigmar One' no está disponible */
-  font-stretch: expanded; /* Puedes usar 'expanded' o 'condensed' dependiendo de la fuente */
+  font-family: "Roboto Slab", serif;
+  font-stretch: expanded; 
 
   &:hover {
     color: #000;
@@ -61,7 +61,8 @@ export function HeaderComponent(){
         </ContentG>
 
             <MenuList>
-                <MenuItem>Inicio</MenuItem>
+                <MenuItem to = "/">Inicio</MenuItem>
+                <MenuItem to = "/catalogo">Catalogo</MenuItem>
                 <MenuItem>Quienes somos</MenuItem>
                 <MenuItem>Blog</MenuItem>
                 <MenuItem>Contactanos</MenuItem>

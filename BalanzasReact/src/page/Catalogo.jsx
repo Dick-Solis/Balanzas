@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Contactos } from "../components/div/Contactos";
-
+import { BarraUser } from "../components/div/BarraUser";
 export function Catalogo(){
  
     
@@ -11,7 +11,7 @@ export function Catalogo(){
                         <Contactos />
         </ContactContent>
         <ContentBarras>
-            <h1 style={"{}"}>Catalogo</h1>
+            <BarraUser/>
         </ContentBarras>
 
       
@@ -22,15 +22,16 @@ export function Catalogo(){
 }
 
 const ContentG = styled.div`
-background-color: black;
+height: 100vh;
+width: 100%;
 `;
 const ContactContent = styled.div`
 transform: translateY(111%);
   
   `;
   const ContentBarras = styled.div`
-  background-color: #FFA50D;
-  padding-bottom: 144px;
-
+margin-top: 84px;
+background-color: white;
+border: 1px solid black;
 
   `;
