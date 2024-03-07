@@ -130,9 +130,10 @@ const DivGeneral = styled.div`
 margin-left: 60px;
   display: flexbox;
   background-color: #ffffff;
-  width: 100vw;
+  width: 98%;
   height: 15vh;
   display: flex;
   gap: 90px;
+  overflow: hidden;
 
 `;

@@ -7,7 +7,7 @@ export const GlobalStyle = () => (
     styles={css`
       @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Russo+One&display=swap');
       body {
-        font-family: 'Russo One', sans-serif;
+        font-family: "Roboto Slab", serif;
       }
     `}
   />

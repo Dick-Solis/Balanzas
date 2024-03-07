@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import Logo from "../../assets/logo.png"
 import { GlobalStyle } from '../../styles/GlobalStyle';
-import { NavLink } from "react-router-dom";
 const ContentP = styled.header`
+overflow: hidden;
 position: absolute;
   width: 100vw;
   height: 10%;
