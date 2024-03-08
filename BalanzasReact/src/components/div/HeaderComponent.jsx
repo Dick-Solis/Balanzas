@@ -34,13 +34,14 @@ const MenuList = styled.ul`
 
 const MenuItem = styled.li`
   color: #000000;
-  cursor: pointer;
   transition: color 0.3s ease;
   letter-spacing: 5px;
   margin-right: 25px;
   font-size: 20px;
   font-family: "Roboto Slab", serif;
   font-stretch: expanded; 
+  font-weight: bold;
+
 
   &:hover {
     color: #000;

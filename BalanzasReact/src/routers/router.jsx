@@ -5,7 +5,7 @@ import { HeaderComponent } from "../components/div/HeaderComponent.jsx";
 import { SidebarComponentDesktop } from "../components/sidebar/sidebarDesktop";
 import { Quienes } from "../page/Quienes";
 import { Catalogo } from "../page/Catalogo.jsx";
-
+import { Footer } from "../components/div/Footer.jsx";
 export function MyRouters() {
   return (
 
@@ -19,13 +19,12 @@ export function MyRouters() {
           <Route path="/home" element={<HomePage />} />
           <Route path="/quienes" element={<Quienes/>} />
           <Route path="/catalogo" element={<Catalogo/>} />
-
-
-          
-
-
         </Routes>
+
       </Ruta>
+      <Footer/>
+
+
     </HashRouter>
 
    

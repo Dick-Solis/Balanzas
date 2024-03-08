@@ -32,7 +32,7 @@ export function Cards() {
       },
       numero: 1,
     },{
-      id: 2,
+      id: 3,
       Extra: {
         marca: "otraMarca",
         modelo: "XYZ-50",
@@ -44,7 +44,7 @@ export function Cards() {
       numero: 1,
     },
     {
-      id: 2,
+      id: 4,
       Extra: {
         marca: "otraMarca",
         modelo: "XYZ-50",
@@ -56,7 +56,31 @@ export function Cards() {
       numero: 1,
     },
     {
-      id: 2,
+      id: 5,
+      Extra: {
+        marca: "otraMarca",
+        modelo: "XYZ-50",
+        capacidad: "50kg",
+        descripcion: "Descripción del segundo producto lorem ipsum dolor sit amet",
+        oferta: 90,
+        sinOfer: 150,
+      },
+      numero: 1,
+    },
+    {
+      id: 6,
+      Extra: {
+        marca: "otraMarca",
+        modelo: "XYZ-50",
+        capacidad: "50kg",
+        descripcion: "Descripción del segundo producto lorem ipsum dolor sit amet",
+        oferta: 90,
+        sinOfer: 150,
+      },
+      numero: 1,
+    },
+    {
+      id: 7,
       Extra: {
         marca: "otraMarca",
         modelo: "XYZ-50",
@@ -115,6 +139,8 @@ export function Cards() {
 
   return (
     <>
+            <h2>Balanzas de todos los modelos</h2>
+
       <CardC>
         {datos.map((item) => (
           <Carta key={item.id}>
@@ -167,21 +193,25 @@ export function Cards() {
 const CardC = styled.div`
 display: flex;
 flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
-  border: 1px solid black;
-  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  margin-top: 10px;
+  overflow-y:auto; /* Hace que la barra de desplazamiento solo aparezca en eje vertical */
+  background-color: #eaeaea;
 `;
 
 const Carta = styled.div`
-border: 2px solid black;
+    border: 1px solid black;
 border-radius: 9px;
   margin: 50px;
-  background-color: pink;
   width: 520px;
   height: 313px;
-  overflow:hidden;
   display: flex;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  &:focus {
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.5);
+  }
 `;
 
 const ContentIMG = styled.div`
@@ -208,6 +238,7 @@ border: 1px solid black;
 margin: 10px;
 background-color: white;
 border-radius: 8px;
+
 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
 p{
@@ -219,7 +250,11 @@ span{
   box-shadow: black 1px;
 
 }
+ &:hover {
+    border-color: black;
+    transform: scale(1.1.1)
 
+  }
 `;
 
 
@@ -255,6 +290,7 @@ width: 50%;
 height: 100%;
 font-size: 1.5em;
 gap: 0.5em;
+
 &.Numero{
   background-color:Red;
   margin: 0px;

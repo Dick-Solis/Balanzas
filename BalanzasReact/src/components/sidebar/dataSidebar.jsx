@@ -45,13 +45,10 @@ export const DataOptions = [
     title: "Reportes",
     subNav: [
         {
-          title: "Historal medico",
-          path: "/report/medicalHistory",
+          title: "Pedidos Realizados",
+          path: "/report/Historial Pedidos",
         },
-        {
-          title: "Ventas",
-          path: "/report/ventas",
-        },
+        
       ],
   },
   {

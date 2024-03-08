@@ -60,6 +60,7 @@ export function SidebarComponentDesktop() {
 
 const Wrapper = styled.div`
   display: flex;
+  overflow: hidden;
 `;
 
 const SidebarContainer = styled.nav`

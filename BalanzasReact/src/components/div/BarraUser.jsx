@@ -73,7 +73,7 @@ transform: scale(1.5);
 }
 `;
 const ContTL = styled.div`
-margin-top: 5px;
+margin-bottom: 20px;
 `;
 const CLog = styled.div`
 margin-top: 27px;

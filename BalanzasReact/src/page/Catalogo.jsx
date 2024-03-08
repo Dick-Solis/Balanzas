@@ -8,27 +8,24 @@ export function Catalogo(){
     return(
         <>
         <ContentG>
-        <ContactContent>
-                        <Contactos />
-        </ContactContent>
-        <ContentBarras>
-            <BarraUser/>
-        </ContentBarras>
-        <CartasContent>
-          <Cards/>
-
-        </CartasContent>
-
-      
-
+          <ContactContent>
+                          <Contactos />
+          </ContactContent>
+          <ContentBarras>
+              <BarraUser/>
+          </ContentBarras>
+          <CartasContent>
+            <Cards/>
+          </CartasContent>
         </ContentG>
+
         </>
     )
 }
 
 const ContentG = styled.div`
-height: 100vh;
-width: 100%;
+  width: 100vw;
+    height: 100vh;
 `;
 const ContactContent = styled.div`
 transform: translateY(111%);
@@ -37,7 +34,7 @@ transform: translateY(111%);
   const ContentBarras = styled.div`
   overflow: hidden;
   width: 100%;
-margin-top: 84px;
+margin: 40px 13px 1px -29px;
 background-color: white;
 border: 1px solid black;
 
@@ -45,5 +42,6 @@ border: 1px solid black;
 
 const CartasContent = styled.div`
 width: 100%;
-height: 100vh;
+height: 77vh;
+overflow: hidden;
 `;
