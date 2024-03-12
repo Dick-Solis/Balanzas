@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import styled from "@emotion/styled";
 import { Flecha } from '../flechas/Flecha';
@@ -60,10 +61,13 @@ export function CardInicio(){
         </Flecha2>
 
         <ContentCircles>
-        <BsCircle /> 
-        <BsCircle />
-        <BsCircle />
-        <BsCircle />
+          <ul>
+            <li><BsCircle /></li>
+            <li><BsCircle /></li>
+            <li><BsCircle /></li>
+            <li><BsCircle /></li>
+          </ul>
+      
 
         </ContentCircles>
     </Card>
@@ -86,6 +90,7 @@ position: absolute;
 `;
 
 const Card = styled.div`
+overflow: hidden;
 border: 1px solid black;
     max-width: 94%;
     max-height:100%;
@@ -123,9 +128,15 @@ const ContDescription = styled.div`
 `;
  
 const ContentCircles = styled.div`
-    position: absolute;
+position: absolute;
     width: 35%;
     bottom: 445px;
     left: 43%;
-    max-width: 6%;
+  ul{
+      list-style-type: none;
+      display: flex;
+      gap: 20px;
+      margin-right: 100px;
+
+    }
 `;

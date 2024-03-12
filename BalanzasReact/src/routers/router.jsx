@@ -24,7 +24,6 @@ export function MyRouters() {
       </Ruta>
       <Footer/>
 
-
     </HashRouter>
 
    

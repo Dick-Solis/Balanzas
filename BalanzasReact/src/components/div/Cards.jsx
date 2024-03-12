@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { FaMoneyBillWave } from "react-icons/fa";
@@ -5,113 +6,33 @@ import { BiSolidOffer } from "react-icons/bi";
 import { IoMdAddCircle } from "react-icons/io";
 import { IoIosRemoveCircle } from "react-icons/io";
 import { StyledButton } from "../buttons/StyledButton";
+import { ModalCar } from "../modals/ModalCar";
+import { DatosCard } from "../datos/DatosCard";
+import {  useDatos } from "../datos/DatosContext";
 export function Cards() {
+  const [datos, setDatos] = useState(DatosCard);
   const [photo, setPhoto] = useState(null);
-  const [datos, setDatos] = useState([
-    {
-      id: 1,
-      Extra: {
-        marca: "karely",
-        modelo: "ACS-30",
-        capacidad: "30kg",
-        descripcion: "lorem ipsum dolor sit amet, consectetur adip lorem ipsum dolor",
-        oferta: 80,
-        sinOfer: 120,
-      },
-      numero: 1,
-    },
-    {
-      id: 2,
-      Extra: {
-        marca: "otraMarca",
-        modelo: "XYZ-50",
-        capacidad: "50kg",
-        descripcion: "Descripción del segundo producto lorem ipsum dolor sit amet",
-        oferta: 90,
-        sinOfer: 150,
-      },
-      numero: 1,
-    },{
-      id: 3,
-      Extra: {
-        marca: "otraMarca",
-        modelo: "XYZ-50",
-        capacidad: "50kg",
-        descripcion: "Descripción del segundo producto lorem ipsum dolor sit amet",
-        oferta: 90,
-        sinOfer: 150,
-      },
-      numero: 1,
-    },
-    {
-      id: 4,
-      Extra: {
-        marca: "otraMarca",
-        modelo: "XYZ-50",
-        capacidad: "50kg",
-        descripcion: "Descripción del segundo producto lorem ipsum dolor sit amet",
-        oferta: 90,
-        sinOfer: 150,
-      },
-      numero: 1,
-    },
-    {
-      id: 5,
-      Extra: {
-        marca: "otraMarca",
-        modelo: "XYZ-50",
-        capacidad: "50kg",
-        descripcion: "Descripción del segundo producto lorem ipsum dolor sit amet",
-        oferta: 90,
-        sinOfer: 150,
-      },
-      numero: 1,
-    },
-    {
-      id: 6,
-      Extra: {
-        marca: "otraMarca",
-        modelo: "XYZ-50",
-        capacidad: "50kg",
-        descripcion: "Descripción del segundo producto lorem ipsum dolor sit amet",
-        oferta: 90,
-        sinOfer: 150,
-      },
-      numero: 1,
-    },
-    {
-      id: 7,
-      Extra: {
-        marca: "otraMarca",
-        modelo: "XYZ-50",
-        capacidad: "50kg",
-        descripcion: "Descripción del segundo producto lorem ipsum dolor sit amet",
-        oferta: 90,
-        sinOfer: 150,
-      },
-      numero: 1,
-    },
-    
-  ]);
+  const { datos: datosContext, incrementarNumero, decrementarNumero } = useDatos();
 
-  const incrementarNumero = (id) => {
-    setDatos((prevDatos) =>
-      prevDatos.map((item) =>
-        item.id === id
-          ? { ...item, numero: (item.numero || 1) + 1 }
-          : item
-      )
-    );
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const handleIncrement = (id) => {
+    incrementarNumero(id);
+    console.log('Incrementar:', id, datos);
+  };
+  
+  const handleDecrement = (id) => {
+    decrementarNumero(id);
+    console.log('Decrementar:', id, datos);
+  };
+  
+  const openModal = (item) => {
+    setSelectedItem(item);
+    setModalOpen(true);
   };
 
-  const decrementarNumero = (id) => {
-    setDatos((prevDatos) =>
-      prevDatos.map((item) =>
-        item.id === id && item.numero > 1
-          ? { ...item, numero: item.numero - 1 }
-          : item
-      )
-    );
+  const closeModal = () => {
+    setModalOpen(false);
   };
 
   useEffect(() => {
@@ -139,8 +60,7 @@ export function Cards() {
 
   return (
     <>
-            <h2>Balanzas de todos los modelos</h2>
-
+      <h2>Balanzas de todos los modelos</h2>
       <CardC>
         {datos.map((item) => (
           <Carta key={item.id}>
@@ -150,8 +70,7 @@ export function Cards() {
               </ContentIMG>
               <Precios>
                 <p>
-                  <FaMoneyBillWave /> Precio sin oferta:{" "}
-                  <span>s/{item.Extra.sinOfer}</span>
+                  <FaMoneyBillWave /> Precio sin oferta: <span>s/{item.Extra.sinOfer}</span>
                 </p>
                 <p>
                   <BiSolidOffer /> Oferta: {item.Extra.oferta}
@@ -166,21 +85,29 @@ export function Cards() {
                 <p>Descripcion: {item.Extra.descripcion}</p>
               </Textos>
               <Agregar>
-                <Iconos>
-                  <IoIosRemoveCircle onClick={() => decrementarNumero(item.id)} />
+              <Iconos>
+                  <IoIosRemoveCircle onClick={() => handleDecrement(item.id)} />
                   <div className="Numero">
-                    <span>{item.numero}</span>
+                  <span>{item.cantidad}</span>
                   </div>
-                  <IoMdAddCircle onClick={() => incrementarNumero(item.id)} />
+                  <IoMdAddCircle onClick={() => handleIncrement(item.id)} />
                 </Iconos>
                 <div className="Boton">
                   <StyledButton
                     bgColor="#343E49"
                     textColor="#FFFFFF"
                     buttonText="Agregar a Carrito"
+                    onClick={() => openModal(item)}
                   />
                 </div>
               </Agregar>
+              <ModalCar isOpen={modalOpen} onClose={closeModal}>
+                {selectedItem && (
+                  <>
+                    {/* Resto del código del modal */}
+                  </>
+                )}
+              </ModalCar>
             </Content2>
           </Carta>
         ))}
@@ -188,7 +115,6 @@ export function Cards() {
     </>
   );
 }
-
 
 const CardC = styled.div`
 display: flex;
@@ -239,7 +165,7 @@ margin: 10px;
 background-color: white;
 border-radius: 8px;
 
-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
 p{
   font-weight: bold;
@@ -247,6 +173,7 @@ p{
 span{
   text-decoration: line-through;
   font-family: 20px;
+  color: black;
   box-shadow: black 1px;
 
 }

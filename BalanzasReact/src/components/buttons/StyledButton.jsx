@@ -25,10 +25,10 @@ const Boton = styled.button`
   }
 `;
 
-export const StyledButton = ({ bgColor, textColor, buttonText }) => {
+export const StyledButton = ({ bgColor, textColor, buttonText, onClick}) => {
   return (
     <div>
-      <Boton bgColor={bgColor} textColor={textColor}>
+      <Boton onClick={onClick} bgColor={bgColor} textColor={textColor}>
         {buttonText}
       </Boton>
     </div>

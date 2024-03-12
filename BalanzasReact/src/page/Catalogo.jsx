@@ -7,18 +7,17 @@ export function Catalogo(){
     
     return(
         <>
-        <ContentG>
-          <ContactContent>
-                          <Contactos />
-          </ContactContent>
-          <ContentBarras>
-              <BarraUser/>
-          </ContentBarras>
-          <CartasContent>
-            <Cards/>
-          </CartasContent>
-        </ContentG>
-
+          <ContentG>
+            <ContactContent>
+                            <Contactos />
+            </ContactContent>
+            <ContentBarras>
+                <BarraUser/>
+            </ContentBarras>
+            <CartasContent>
+              <Cards/>
+            </CartasContent>
+          </ContentG>
         </>
     )
 }
