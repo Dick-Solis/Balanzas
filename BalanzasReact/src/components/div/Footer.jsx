@@ -8,9 +8,6 @@ import { AiFillInstagram } from "react-icons/ai";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FaYoutube } from "react-icons/fa";
 
-
-
-
 export function Footer(){
     return(
     <>
@@ -61,6 +58,7 @@ export function Footer(){
 
             </RSociales>
             </div>
+            
             
 
              

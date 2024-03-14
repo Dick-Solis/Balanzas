@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-
+import { Imagen } from './Imagen';
+import { NumberController } from '../input/NumberController';
 const CartItem = styled.div`
   display: flex;
   align-items: center;
@@ -8,30 +9,55 @@ const CartItem = styled.div`
   margin-bottom: 10px;
 `;
 
-const ItemName = styled.span`
+const ItemName = styled.div`
   font-weight: bold;
+  margin-top: 0px;
 `;
 
-const ItemPrice = styled.span`
+const ItemPrice = styled.div`
   font-weight: bold;
-  color: #f00;
+  color: #000000;
+  margin-right:20px;
+  p{
+    text-decoration: line-through;
+    font-size: 1.2em;
+  }
 `;
-
-export const ShoppingCard = ({ items }) => {
+const ConTitle = styled.div`
+font-size: 1em;
+border-bottom: 1px solid black;
+`;
+export const ShoppingCard = ({ selectedItem }) => {
   return (
     <div>
-      <h2>Lo que llevas en tu Carro</h2>
-      {items.map((item, index) => (
-        <CartItem key={index}>
-          <ItemName>{item.name}</ItemName>
-          <ItemPrice>S/{item.price}</ItemPrice>
+      <ConTitle> <h2>Lo que llevas en tu Carro</h2></ConTitle>
+      {selectedItem && ( // Verificar si el item fue encontrado
+      
+        <CartItem key={selectedItem.id}>
+          <ContentInfo>
+        <Imagen ancho="60px" alto="50px" />
+            <Infotext>
+                <ItemName> <div> <p>marca: {selectedItem.Extra.marca} </p> <p>modelo: {selectedItem.Extra.modelo}</p></div></ItemName>
+          </Infotext>
+          </ContentInfo>
+          <ItemPrice> <div> {selectedItem.Extra.oferta} <p>{selectedItem.Extra.sinOfer} </p> </div></ItemPrice>
+          <NumberController/>
+
+
         </CartItem>
-      ))}
+      )}
       <div>
-        <span>Total:</span>
-        <span>S/{items.reduce((total, item) => total + item.price, 0)}</span>
       </div>
     </div>
   );
 };
 
+const ContentInfo = styled.div`
+align-items:center;
+display: flex;
+
+`;
+
+const Infotext = styled.div`
+
+`;

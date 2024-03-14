@@ -9,10 +9,12 @@ import { StyledButton } from "../buttons/StyledButton";
 import { ModalCar } from "../modals/ModalCar";
 import { DatosCard } from "../datos/DatosCard";
 import {  useDatos } from "../datos/DatosContext";
+
+import { ShoppingCard } from "../datos/ShoppingCard";
 export function Cards() {
   const [datos, setDatos] = useState(DatosCard);
   const [photo, setPhoto] = useState(null);
-  const { datos: datosContext, incrementarNumero, decrementarNumero } = useDatos();
+  const { datos: DatosContext, incrementarNumero, decrementarNumero } = useDatos();
 
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -101,13 +103,14 @@ export function Cards() {
                   />
                 </div>
               </Agregar>
+
               <ModalCar isOpen={modalOpen} onClose={closeModal}>
-                {selectedItem && (
-                  <>
-                    {/* Resto del código del modal */}
-                  </>
-                )}
-              </ModalCar>
+              {selectedItem && (
+                <ShoppingCard selectedItem={selectedItem} />
+              )}
+            </ModalCar>
+
+
             </Content2>
           </Carta>
         ))}

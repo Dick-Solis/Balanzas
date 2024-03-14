@@ -3,7 +3,7 @@ import { HomePage } from "../page/HomePage";
 import styled from "@emotion/styled";
 import { HeaderComponent } from "../components/div/HeaderComponent.jsx";
 import { SidebarComponentDesktop } from "../components/sidebar/sidebarDesktop";
-import { Quienes } from "../page/Quienes";
+import { Quienes } from "../page/Quienes.jsx";
 import { Catalogo } from "../page/Catalogo.jsx";
 import { Footer } from "../components/div/Footer.jsx";
 export function MyRouters() {

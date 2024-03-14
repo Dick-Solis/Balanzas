@@ -33,7 +33,7 @@ const ModalContent = styled.div`
 const CloseButton = styled.button`
   background: none;
   border: none;
-  font-size: 18px;
+  font-size: 2em;
   cursor: pointer;
 `;
 

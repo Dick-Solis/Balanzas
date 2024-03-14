@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -12,6 +12,20 @@ export function SidebarComponentDesktop() {
     setIsVisible((prev) => !prev);
   };
 
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setIsVisible(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, []);
+
   return (
     <>
       <Wrapper>
@@ -24,8 +38,8 @@ export function SidebarComponentDesktop() {
       </Wrapper>
     
       <SidebarContainer isVisible={isVisible}>
-  <ContentData>
-  <ListStyled>
+        <ContentData>
+          <ListStyled>
             {DataOptions.map((option) => (
               <ListItem key={option.title}>
                 <NavLinkStyled to={option.path}>
@@ -43,16 +57,14 @@ export function SidebarComponentDesktop() {
                           </NavLinkStyled>
                         </SubListItem>
                       ))}</SubNavTitle>
-                     
                     </SubListItem>
                   </ul>
                 )}
               </ListItem>
             ))}
           </ListStyled>
-  </ContentData>
-</SidebarContainer>
-
+        </ContentData>
+      </SidebarContainer>
     </>
   );
 }

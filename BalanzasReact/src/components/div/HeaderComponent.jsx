@@ -29,6 +29,8 @@ const MenuList = styled.ul`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  cursor: pointer;
+
   
 `;
 

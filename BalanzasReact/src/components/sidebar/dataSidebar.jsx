@@ -37,8 +37,8 @@ export const DataOptions = [
     path: "/RServicio",
   },
   {
-    title: "Productos",
-    path: "/products",
+    title: "Quienes Somos",
+    path: "/quienes",
   },
   {
     id: 5,
