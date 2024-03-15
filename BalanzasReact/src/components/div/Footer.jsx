@@ -3,11 +3,8 @@ import { FaWhatsapp } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoStorefront } from "react-icons/io5";
 import { IoBookSharp } from "react-icons/io5";
-import { FaFacebook } from "react-icons/fa6";
-import { AiFillInstagram } from "react-icons/ai";
-import { IoLogoWhatsapp } from "react-icons/io";
-import { FaYoutube } from "react-icons/fa";
 
+import { RedesSociales } from "../social/RedesSociales";
 export function Footer(){
     return(
     <>
@@ -47,13 +44,10 @@ export function Footer(){
             <div>
             <span>Nuestra Redes Sociales</span>
             <RSociales>
-                <ul>
-                    <li><FaFacebook /></li>
-                    <li><AiFillInstagram /></li>
-                    <li><IoLogoWhatsapp /></li>
-                    <li><FaYoutube /></li>
-     
-                </ul>
+            <RedesSociales/>
+
+
+
 
 
             </RSociales>

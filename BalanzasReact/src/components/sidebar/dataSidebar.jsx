@@ -9,7 +9,7 @@ export const DataOptions = [
   {
     title: "Inicio",
     icon: <FaHome />,
-    path: "/home",
+    path: "/inicio",
   },
   {
     title: "Catalogo",
