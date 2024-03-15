@@ -20,12 +20,14 @@ background-color: white;
   align-items: center;  // Alinea verticalmente el contenido
   transform: translate(215px, 26px);
     border: 2px solid white;
+    border-radius: 16px;
     width: 10%;
     color: #000000;
     height: 2vh;
     padding-right: 5px;
     font-family: 'Russo One', sans-serif; /* Aplica la fuente deseada */
     font-size: 20px;
+    overflow: hidden;
 
   p {
     margin-left: 10px;  // Agrega un espacio entre el icono y el texto

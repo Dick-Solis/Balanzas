@@ -5,11 +5,11 @@ import { CardInicio } from "../components/div/CardInicio.jsx";
 export function HomePage(){
     const ContentG = styled.div`
     width: 100vw;
-    height: 100vh;
+    height: 10%;
     `;
     const ContactContent = styled.div`
     transform: translateY(111%);
-    
+
     `;
     const Content1 = styled.div`
     
@@ -28,7 +28,7 @@ export function HomePage(){
 
     `;
     const ContenedorCont = styled.div`
-    width: 100vw;
+    width: 90vw;
     height: 50vh;
     display: flex;
     gap: 45px;
@@ -47,8 +47,8 @@ export function HomePage(){
     
     `;
     const ContentCard = styled.div`
-    height: 294px;
-    width: 658px;
+    height: 300px;
+    width: 700px;
     `;
     const ContTI = styled.div`
     font-family: 'Segoe UI';
@@ -65,6 +65,10 @@ padding: 0;
 text-align:center;
 font-size: 30px;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+h2{
+    display: inline-block;
+
+}
 `; 
 const Descripcion2 = styled.div`
 width: 100%;

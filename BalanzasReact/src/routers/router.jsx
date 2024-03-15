@@ -11,12 +11,13 @@ export function MyRouters() {
 
     <HashRouter>
       <HeaderComponent/>
+      <SidebarComponentDesktop />
+
       <Ruta>
-        <SidebarComponentDesktop />
 
           <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/inicio" element={<HomePage />} />
           <Route path="/quienes" element={<Quienes/>} />
           <Route path="/catalogo" element={<Catalogo/>} />
         </Routes>
@@ -30,7 +31,7 @@ export function MyRouters() {
   );
 }
 const Ruta = styled.main`
-      height: 100vh;
+      height: 100%;
       width: 100vw;
       background-color: ${(props) => props.theme.body};
       transition: all 0.5s ease;

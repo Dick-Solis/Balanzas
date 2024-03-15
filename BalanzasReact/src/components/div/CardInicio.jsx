@@ -1,142 +1,159 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import styled from "@emotion/styled";
 import { Flecha } from '../flechas/Flecha';
 import { BsCircle } from "react-icons/bs";
 
 export function CardInicio(){
-    const [photo, setPhoto] = useState(null);
+    const [photos, setPhotos] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [autoPlay, setAutoPlay] = useState(true);
 
     useEffect(() => {
-      const fetchData = async () => {
-        try {
-          // Hacemos una llamada a la API para obtener la información de la foto con id "2014422"
-          const response = await fetch('https://api.pexels.com/v1/photos/1084584', {
-            headers: {
-              'Authorization': 'cxcmhJwpKfEi3tYzj5Qd0LbSkRMIIdAL2D96XGigjBwQ1d06oqg092LV', // Asegúrate de reemplazar 'Tu-API-Key' con tu clave de API real
-            },
-          });
-  
-          if (!response.ok) {
-            throw new Error('Error al obtener datos de la API');
-          }
-  
-          const data = await response.json();
-  
-          // Actualizamos el estado con la información de la foto
-          setPhoto(data);
-        } catch (error) {
-          console.error('Error:', error);
+        const fetchData = async () => {
+            try {
+                const response = await fetch('https://api.pexels.com/v1/search?query=technology&per_page=5&page=1', {
+                    headers: {
+                        'Authorization': 'cxcmhJwpKfEi3tYzj5Qd0LbSkRMIIdAL2D96XGigjBwQ1d06oqg092LV',
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error al obtener datos de la API');
+                }
+
+                const data = await response.json();
+
+                setPhotos(data.photos);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        if (autoPlay) {
+            const intervalId = setInterval(() => {
+                setCurrentIndex((prevIndex) => (prevIndex + 1) % photos.length);
+            }, 3000);
+
+            return () => clearInterval(intervalId);
         }
-      };
-  
-      // Llamamos a la función para obtener datos cuando el componente se monta
-      fetchData();
-    }, []); // El segundo parámetro del useEffect es una matriz de dependencias, en est
-    return(<>
-    <Card>
-        <Flecha1>
-        <Flecha type="back" fontSize="5em" rotation={90} />
-        </Flecha1>
-        <ContTitle>
-        <p>Balanza Tradicional</p>
-        </ContTitle>
-        <ContIMG>  
-            {photo && (
-                  
-                    <StyledIMG   src={photo.src.original} alt={photo.alt} />
-                
-             )}
-        </ContIMG>
-        <ContDescription>
-            <ul>
-                <li>Soporta Hasta 30 kg</li><br />
-                <li>Hecho de acero inoxidable</li><br />
-                <li>Batería de  hasta 72 horas</li>
-            </ul>
-        </ContDescription>
-        <Flecha2>
-        <Flecha type="forward" fontSize="5em" rotation={90} />
+    }, [autoPlay, photos.length]);
 
-        </Flecha2>
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % photos.length);
+        setAutoPlay(false); // Detener el cambio automático cuando el usuario interactúa manualmente
+    };
 
-        <ContentCircles>
-          <ul>
-            <li><BsCircle /></li>
-            <li><BsCircle /></li>
-            <li><BsCircle /></li>
-            <li><BsCircle /></li>
-          </ul>
-      
+    const handlePrev = () => {
+        setCurrentIndex((prevIndex) => (prevIndex === 0 ? photos.length - 1 : prevIndex - 1));
+        setAutoPlay(false); // Detener el cambio automático cuando el usuario interactúa manualmente
+    };
 
-        </ContentCircles>
-    </Card>
-    </>)
+    return (
+        <>
+            <Card>
+                <ContTitle>
+                    <p>Balanza Tradicional</p>
+                </ContTitle>
+                <Mid>
+                    <Flecha1 onClick={handlePrev}>
+                        <Flecha type="back" fontSize="5em" rotation={90} />
+                    </Flecha1>
+                    <ContIMG>
+                        {photos.length > 0 && (
+                            <StyledIMG src={photos[currentIndex].src.original} alt={photos[currentIndex].alt} />
+                        )}
+                    </ContIMG>
+                    <ContDescription>
+                        <ul>
+                            <li>Soporta Hasta 30 kg</li>
+                            <li>Hecho de acero inoxidable</li>
+                            <li>Batería de hasta 72 horas</li>
+                        </ul>
+                    </ContDescription>
+                    <Flecha2 onClick={handleNext}>
+                        <Flecha type="forward" fontSize="5em" rotation={90} />
+                    </Flecha2>
+                </Mid>
+                <ContentCircles>
+                    <ul>
+                        {photos.map((photo, index) => (
+                            <li key={index}><BsCircle /></li>
+                        ))}
+                    </ul>
+                </ContentCircles>
+            </Card>
+        </>
+    );
 }
+
+const Mid = styled.div`
+    height: 50%;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+`;
+
 const Flecha1 = styled.div`
-    position: absolute;
-    width: 38%;
-    bottom: 49%;
-    left: 28%;
-    max-width: 5%;
+    margin-top: 3%;
+    cursor: pointer;
 `;
 
 const Flecha2 = styled.div`
-position: absolute;
-    width: 35%;
-    bottom: 49%;
-    left: 53.5%;
-    max-width: 5%;
+    margin-top: 3%;
+    cursor: pointer;
 `;
 
 const Card = styled.div`
-overflow: hidden;
-border: 1px solid black;
-    max-width: 94%;
-    max-height:100%;
-    border-radius:40px;
+    overflow: hidden;
+    border: 1px solid black;
+    width: 94%;
+    height: 100%;
+    border-radius: 40px;
     background-color: white;
-    text-align: center;
     transform: translate rotate(5);
+`;
 
-`;
 const ContTitle = styled.div`
-text-align: center;
-padding-bottom: 10px;
-font-size: 25px;
-font-family: 'Segoe UI';
-letter-spacing: 2px;
-font-weight:  bold;
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 25px;
+    font-family: 'Segoe UI';
+    letter-spacing: 2px;
+    font-weight: bold;
 `;
+
 const ContIMG = styled.div`
-    transform: translate(82px, -28px);
-    height: 200px;
-    width: 285px;
+    height: 80%;
+    width: 40%;
     overflow: hidden;
 `;
+
 const StyledIMG = styled.img`
     height: 160px;
     width: 265px;
-  object-fit: contain; /* Utilizamos contain en lugar de cover para asegurarnos de que la imagen se ajuste completamente sin recortes */
+    object-fit: contain;
 `;
 
 const ContDescription = styled.div`
-    transform: translate(334px, -233px);
     width: 35%;
     left: 28%;
     max-width: 100%;
 `;
- 
-const ContentCircles = styled.div`
-position: absolute;
-    width: 35%;
-    bottom: 445px;
-    left: 43%;
-  ul{
-      list-style-type: none;
-      display: flex;
-      gap: 20px;
-      margin-right: 100px;
 
+const ContentCircles = styled.div`
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        gap: 20px;
+        margin: 0; /* Reiniciamos el margen para que no afecte la alineación */
+        padding: 0; /* Reiniciamos el relleno para que no afecte la alineación */
     }
 `;

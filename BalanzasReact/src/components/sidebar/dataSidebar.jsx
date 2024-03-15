@@ -30,16 +30,16 @@ export const DataOptions = [
     ],
   },
   
-
+  {
+    title: "Quienes Somos",
+    path: "/quienes",
+  },
   {
     title: "Reparación y Servicio",
     icon: <GiAutoRepair />,
     path: "/RServicio",
   },
-  {
-    title: "Quienes Somos",
-    path: "/quienes",
-  },
+ 
   {
     id: 5,
     title: "Reportes",

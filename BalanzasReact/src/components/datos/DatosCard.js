@@ -26,7 +26,7 @@ export const DatosCard = [
     },{
       id: 3,
       Extra: {
-        marca: "otraMarca",
+        marca: "Nixon",
         modelo: "XYZ-50",
         capacidad: "50kg",
         descripcion: "Descripción del segundo producto lorem ipsum dolor sit amet",
@@ -38,7 +38,7 @@ export const DatosCard = [
     {
       id: 4,
       Extra: {
-        marca: "otraMarca",
+        marca: "BalanOrigin",
         modelo: "XYZ-50",
         capacidad: "50kg",
         descripcion: "Descripción del segundo producto lorem ipsum dolor sit amet",
@@ -50,7 +50,7 @@ export const DatosCard = [
     {
       id: 5,
       Extra: {
-        marca: "otraMarca",
+        marca: "Omron",
         modelo: "XYZ-50",
         capacidad: "50kg",
         descripcion: "Descripción del segundo producto lorem ipsum dolor sit amet",
@@ -62,7 +62,7 @@ export const DatosCard = [
     {
       id: 6,
       Extra: {
-        marca: "otraMarca",
+        marca: "Citizen",
         modelo: "XYZ-50",
         capacidad: "50kg",
         descripcion: "Descripción del segundo producto lorem ipsum dolor sit amet",
@@ -74,7 +74,7 @@ export const DatosCard = [
     {
       id: 7,
       Extra: {
-        marca: "otraMarca",
+        marca: "BEuruer",
         modelo: "XYZ-50",
         capacidad: "50kg",
         descripcion: "Descripción del segundo producto lorem ipsum dolor sit amet",
