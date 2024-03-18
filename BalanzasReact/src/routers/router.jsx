@@ -14,6 +14,8 @@ export function MyRouters() {
 
     <HashRouter>
       <HeaderComponent/>
+      <SidebarComponentDesktop />
+
       <ContactContent>      
           <Contactos />
     </ContactContent>
@@ -22,7 +24,6 @@ export function MyRouters() {
 
     </ContentBarras>
 
-      <SidebarComponentDesktop />
 
       <Ruta>
 
@@ -51,12 +52,13 @@ const Ruta = styled.main`
       `;
 const ContactContent = styled.div`
 transform: translateY(111%);
+width: 100vw;
   
   `;
 
 const ContentBarras = styled.div`
 overflow: hidden;
-width: 100%;
+width: 100vw;
 margin: 40px 13px 1px -29px;
 background-color: white;
 border: 1px solid black;
