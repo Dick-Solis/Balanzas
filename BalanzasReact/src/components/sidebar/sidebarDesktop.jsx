@@ -99,6 +99,7 @@ const Wrapper = styled.div`
 `;
 
 const SidebarContainer = styled.nav`
+margin: -8px;
   position: absolute;
   width: ${({ isVisible }) => (isVisible ? '18vw' : '1')};
   user-select: none;
@@ -107,7 +108,7 @@ const SidebarContainer = styled.nav`
   transition: width 0s linear, opacity 0.1s ease, transform 0.1s ease;
   z-index: 10;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  transform: translateY(${({ isVisible }) => (isVisible ? '0' : '100%')});
+  transform: translateX(${({ isVisible }) => (isVisible ? '0' : '-100%')});
   background-color: ${({ isVisible }) => (isVisible ? '#FFF452' : 'transparent')};
   border: ${({ isVisible }) => (isVisible ? '1px solid black' : 'none')};
 `;

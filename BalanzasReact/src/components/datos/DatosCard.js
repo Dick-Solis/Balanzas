@@ -13,7 +13,7 @@ export const DatosCard = [
       cantidad: 1,
     },
     {
-      id: 2,
+      id: 2,  
       Extra: {
         marca: "otraMarca",
         modelo: "XYZ-50",

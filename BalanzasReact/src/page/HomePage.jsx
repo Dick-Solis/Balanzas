@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Contactos } from "../components/div/Contactos";
 import { GlobalStyle } from '../styles/GlobalStyle.jsx';
 import { CardInicio } from "../components/div/CardInicio.jsx";
 export function HomePage(){
@@ -7,10 +6,7 @@ export function HomePage(){
     width: 100vw;
     height: 10%;
     `;
-    const ContactContent = styled.div`
-    transform: translateY(111%);
-
-    `;
+ 
     const Content1 = styled.div`
     
     padding-top: 75px;
@@ -80,9 +76,7 @@ font-size: 21px;
          <GlobalStyle />
 
         <ContentG>
-            <ContactContent>
-                        <Contactos />
-            </ContactContent>
+        
             <Content1>
                 <ConTitle>
                 <h1>Balanzas</h1>

@@ -5,6 +5,7 @@ import { FaMapLocationDot } from "react-icons/fa6";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 export function BarraUser() {
   // Definir la variable de contenido
@@ -52,11 +53,15 @@ export function BarraUser() {
               <p>{contenido.User.texto} <br /> Cuenta y Pedidos</p>
               <Flecha className="flechaUbi">{contenido.User.flecha}</Flecha>
             </Cmap>
-          </ContTL><ContTL>
-            <Cmap>
+          </ContTL>
+          <ContTL>
+            <Cmap >
               <CLog>{contenido.Compras.icono}</CLog>
               <p>{contenido.Compras.texto}</p>
+              <StyledLink  to="/compras"> 
+
               <Flecha>{contenido.Compras.flecha}</Flecha>
+              </StyledLink>
             </Cmap>
           </ContTL>
         </UbicacionMenu>
@@ -64,7 +69,11 @@ export function BarraUser() {
     </>
   );
 }
-
+const StyledLink = styled(Link)`
+  /* Estilos opcionales para el enlace */
+  text-decoration: none;
+  color: inherit;
+`;
 const Flecha = styled.div `
 margin-top:36px;
 transform: scale(1.5);

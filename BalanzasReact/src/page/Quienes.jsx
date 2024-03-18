@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Contactos } from "../components/div/Contactos";
 import { BarraUser } from "../components/div/BarraUser";
 import { Imagen } from "../components/datos/Imagen";
 export function Quienes(){
@@ -8,13 +7,7 @@ export function Quienes(){
     return(<>
     <>
     <ContentGeneral>
-        <ContactContent>
-            <Contactos/>
-        </ContactContent>
-
-        <ContentBarras>
-            <BarraUser/>
-        </ContentBarras>
+    
 
         <ContentTextos>
         <div>
@@ -38,10 +31,7 @@ export function Quienes(){
     
     </>)
 }
-const ContactContent = styled.div`
-transform: translateY(111%);
-  
-  `;
+
 const ContentGeneral =styled.div`
 width: 100%;
 height: 100vh;
@@ -49,14 +39,6 @@ justify-content:center;
 `;
 
 
-const ContentBarras = styled.div`
-overflow: hidden;
-width: 100%;
-margin: 40px 13px 1px -29px;
-background-color: white;
-border: 1px solid black;
-
-`;
 
 const ContentTextos = styled.div`
 text-align: center;

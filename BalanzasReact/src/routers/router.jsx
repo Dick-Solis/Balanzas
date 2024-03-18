@@ -6,11 +6,22 @@ import { SidebarComponentDesktop } from "../components/sidebar/sidebarDesktop";
 import { Quienes } from "../page/Quienes.jsx";
 import { Catalogo } from "../page/Catalogo.jsx";
 import { Footer } from "../components/div/Footer.jsx";
+import { ComprasDate } from "../components/compras/ComprasDate.jsx";
+import { Contactos } from "../components/div/Contactos.jsx";
+import { BarraUser } from "../components/div/BarraUser.jsx";
 export function MyRouters() {
   return (
 
     <HashRouter>
       <HeaderComponent/>
+      <ContactContent>      
+          <Contactos />
+    </ContactContent>
+    <ContentBarras>
+    <BarraUser/>
+
+    </ContentBarras>
+
       <SidebarComponentDesktop />
 
       <Ruta>
@@ -20,6 +31,8 @@ export function MyRouters() {
           <Route path="/inicio" element={<HomePage />} />
           <Route path="/quienes" element={<Quienes/>} />
           <Route path="/catalogo" element={<Catalogo/>} />
+          <Route path="/compras" element={<ComprasDate/>} />
+
         </Routes>
 
       </Ruta>
@@ -36,3 +49,16 @@ const Ruta = styled.main`
       background-color: ${(props) => props.theme.body};
       transition: all 0.5s ease;
       `;
+const ContactContent = styled.div`
+transform: translateY(111%);
+  
+  `;
+
+const ContentBarras = styled.div`
+overflow: hidden;
+width: 100%;
+margin: 40px 13px 1px -29px;
+background-color: white;
+border: 1px solid black;
+
+`;

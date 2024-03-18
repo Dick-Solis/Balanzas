@@ -19,7 +19,7 @@ const ItemPrice = styled.div`
   font-weight: bold;
   color: #000000;
   margin-right:20px;
-  p{
+  p {
     text-decoration: line-through;
     font-size: 1.2em;
   }
@@ -59,12 +59,28 @@ const ConfirmButton = styled.button`
   font-size: 16px;
   border-radius: 5px;
   transition: opacity 0.5s ease;
-
-
 `;
 
 export const ShoppingCard = ({ selectedItem }) => {
   const [confirmationClicked, setConfirmationClicked] = useState(false);
+  const [purchasedItems, setPurchasedItems] = useState([]);
+
+  useEffect(() => {
+    // Al cargar la página, comprobar si hay datos en el localStorage
+    const storedItems = JSON.parse(localStorage.getItem("CompraDatos"));
+    if (storedItems) {
+      setPurchasedItems(storedItems);
+    }
+  }, []);
+
+  const handleConfirmationClick = () => {
+    // Crear una nueva estructura de datos con el elemento comprado
+    const updatedItems = [...purchasedItems, selectedItem];
+    // Guardar la nueva estructura en el localStorage
+    localStorage.setItem("CompraDatos", JSON.stringify(updatedItems));
+    // Marcar la confirmación como completada
+    setConfirmationClicked(true);
+  };
 
   useEffect(() => {
     let timeout;
@@ -75,10 +91,6 @@ export const ShoppingCard = ({ selectedItem }) => {
     }
     return () => clearTimeout(timeout);
   }, [confirmationClicked]);
-
-  const handleConfirmationClick = () => {
-    setConfirmationClicked(true);
-  };
 
   return (
     <div>
@@ -102,15 +114,17 @@ export const ShoppingCard = ({ selectedItem }) => {
               <p>{selectedItem.Extra.sinOfer}</p>
             </div>
           </ItemPrice>
-          <NumberController />
+          <NumberController quantity={selectedItem.cantidad} />
         </CartItem>
       )}
-      <ConfirmButton onClick={handleConfirmationClick}>Confirmar</ConfirmButton>
-      {confirmationClicked && (
-        <Notification>
-          Se ha agregado al carrito 
-        </Notification>
-      )}
+      <div>
+        <ConfirmButton onClick={handleConfirmationClick}>Confirmar</ConfirmButton>
+        {confirmationClicked && (
+          <Notification>
+            Se ha agregado al carrito 
+          </Notification>
+        )}
+      </div>
     </div>
   );
 };

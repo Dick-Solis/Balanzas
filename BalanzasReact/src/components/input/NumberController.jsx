@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 
 const NumberContainer = styled.div`
@@ -21,15 +21,19 @@ const NumberDisplay = styled.span`
   font-size: 1.5rem;
 `;
 
-export const NumberController = () => {
-  const [number, setNumber] = useState(0);
+export const NumberController = ({ quantity }) => {
+  const [number, setNumber] = useState(quantity);
 
   const incrementNumber = () => {
-    setNumber(prevNumber => prevNumber + 1);
+    const newNumber = number + 1;
+    setNumber(newNumber);
+    // Aquí puedes realizar cualquier otra lógica necesaria, como actualizar el estado global o local
   };
 
   const decrementNumber = () => {
-    setNumber(prevNumber => prevNumber - 1);
+    const newNumber = Math.max(number - 1, 0);
+    setNumber(newNumber);
+    // Aquí puedes realizar cualquier otra lógica necesaria, como actualizar el estado global o local
   };
 
   return (
@@ -40,4 +44,3 @@ export const NumberController = () => {
     </NumberContainer>
   );
 };
-

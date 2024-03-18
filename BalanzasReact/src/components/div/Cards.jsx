@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { FaMoneyBillWave } from "react-icons/fa";
@@ -8,34 +7,45 @@ import { IoIosRemoveCircle } from "react-icons/io";
 import { StyledButton } from "../buttons/StyledButton";
 import { ModalCar } from "../modals/ModalCar";
 import { DatosCard } from "../datos/DatosCard";
-import {  useDatos } from "../datos/DatosContext";
-
 import { ShoppingCard } from "../datos/ShoppingCard";
+
 export function Cards() {
   const [datos, setDatos] = useState(DatosCard);
   const [photo, setPhoto] = useState(null);
-  const { datos: DatosContext, incrementarNumero, decrementarNumero } = useDatos();
-
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+
   const handleIncrement = (id) => {
-    incrementarNumero(id);
-    console.log('Incrementar:', id, datos);
+    const updatedDatos = datos.map(item =>
+      item.id === id ? { ...item, cantidad: item.cantidad + 1 } : item
+    );
+    setDatos(updatedDatos);
   };
-  
+
   const handleDecrement = (id) => {
-    decrementarNumero(id);
-    console.log('Decrementar:', id, datos);
+    const updatedDatos = datos.map(item =>
+      item.id === id ? { ...item, cantidad: Math.max(item.cantidad - 1, 0) } : item
+    );
+    setDatos(updatedDatos);
   };
-  
-  const openModal = (item) => {
-    setSelectedItem(item);
-    setModalOpen(true);
-  };
+
+ 
 
   const closeModal = () => {
     setModalOpen(false);
   };
+  const handleAgregarCarrito = (item) => {
+    // Guardar la cantidad actualizada en el local storage
+    const updatedDatos = datos.map(d => d.id === item.id ? item : d);
+    localStorage.setItem('datos', JSON.stringify(updatedDatos));
+    
+    // Mantener el modal abierto después de guardar los datos en el local storage
+  };
+  const openModal = (item) => {
+    setSelectedItem(item);
+    setModalOpen(true);
+  };
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -87,10 +97,10 @@ export function Cards() {
                 <p>Descripcion: {item.Extra.descripcion}</p>
               </Textos>
               <Agregar>
-              <Iconos>
+                <Iconos>
                   <IoIosRemoveCircle onClick={() => handleDecrement(item.id)} />
                   <div className="Numero">
-                  <span>{item.cantidad}</span>
+                    <span>{item.cantidad}</span>
                   </div>
                   <IoMdAddCircle onClick={() => handleIncrement(item.id)} />
                 </Iconos>
@@ -99,18 +109,19 @@ export function Cards() {
                     bgColor="#343E49"
                     textColor="#FFFFFF"
                     buttonText="Agregar a Carrito"
-                    onClick={() => openModal(item)}
+                    onClick={() => {
+                      handleAgregarCarrito(item);
+                      openModal(item);
+                    }}
                   />
                 </div>
               </Agregar>
 
               <ModalCar isOpen={modalOpen} onClose={closeModal}>
-              {selectedItem && (
-                <ShoppingCard selectedItem={selectedItem} />
-              )}
-            </ModalCar>
-
-
+                {selectedItem && (
+                  <ShoppingCard selectedItem={selectedItem} quantity={selectedItem.cantidad} />
+                )}
+              </ModalCar>
             </Content2>
           </Carta>
         ))}
