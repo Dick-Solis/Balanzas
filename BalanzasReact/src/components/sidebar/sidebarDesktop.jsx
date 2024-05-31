@@ -104,7 +104,7 @@ margin: -8px;
   width: ${({ isVisible }) => (isVisible ? '18vw' : '1')};
   user-select: none;
   flex-direction: column;
-  height: ${({ isVisible }) => (isVisible ? '150vh' : 'auto')}; // Ajusta el height cuando está oculto
+  height: 100vh;
   transition: width 0s linear, opacity 0.1s ease, transform 0.1s ease;
   z-index: 10;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};

@@ -54,6 +54,7 @@ const MenuItem = styled.li`
 `;
 
 const LinkStyle = styled(Link)`
+font-size: 1.2em;
   color: black;
   text-shadow: black 1px;
 
